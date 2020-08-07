@@ -10,7 +10,8 @@ const TodoList = () =>{
     );
 };
 const AppHeader = () => {
-    return <h1>
+    const headerStyle = {fontSize: '20px'}
+    return <h1 style = {headerStyle}>
         Todo - list
     </h1>
 
@@ -18,9 +19,13 @@ const AppHeader = () => {
 const SearchPanel = () =>{
     return <input placeholder ='search'/>
 }
+
 const App = () =>{
+    const date = <span>{(new Date()).toLocaleDateString()}</span> //this is React element
+
     return(
         <div>
+            {date}
             <AppHeader/>
             <TodoList/>
             <SearchPanel/>

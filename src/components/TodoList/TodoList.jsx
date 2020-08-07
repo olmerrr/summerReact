@@ -1,11 +1,7 @@
 import React from "react";
+import TodoListItem from "../TodoListItem/TodoListItem";
 
 const TodoList = () =>{
-    return(
-        <ul>
-            <li>Lern ReactJS</li>
-            <li>Build Awesome App</li>
-        </ul>
-    );
+    return <TodoListItem/>;
 };
 export default TodoList;

@@ -7,12 +7,17 @@ import SearchPanel from "./components/SearchPanel/SearchPanel";
 
 const App = () =>{
     const date = <span>{(new Date()).toLocaleDateString()}</span> //this is React element
+    const todoData = [
+        {label: 'Drink coffee',important: false},
+        {label: 'Make awesome App',important: true},
+        {label: 'Drink tea',important: false }
 
+    ]
     return(
         <div>
             {date}
             <AppHeader/>
-            <TodoList/>
+            <TodoList todos={todoData}/>
             <SearchPanel/>
         </div>
     )

@@ -5,20 +5,20 @@ import AppHeader from "./components/AppHeader/AppHeader";
 import SearchPanel from "./components/SearchPanel/SearchPanel";
 
 
-const App = () =>{
+    const App = () =>{
     const date = <span>{(new Date()).toLocaleDateString()}</span> //this is React element
     const todoData = [
-        {label: 'Drink coffee',important: false},
-        {label: 'Make awesome App',important: true},
-        {label: 'Drink tea',important: false }
+        {id:0, label: 'Drink coffee',important: false},
+        {id:1, label: 'Make awesome App',important: true},
+        {id:2, label: 'Drink tea',important: false }
 
     ]
     return(
         <div>
             {date}
             <AppHeader/>
-            <TodoList todos={todoData}/>
             <SearchPanel/>
+            <TodoList todos = {todoData}/>
         </div>
     )
 }

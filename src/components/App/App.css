@@ -1,0 +1,7 @@
+.app-wrap{
+    padding: .75rem 1rem;
+}
+.inner-wrap{
+    display: flex;
+    padding: 1rem 0;
+}

@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import TodoList from "./components/TodoList/TodoList";
 import AppHeader from "./components/AppHeader/AppHeader";
 import SearchPanel from "./components/SearchPanel/SearchPanel";
-
+import ItemStatusFilter from "./components/ItemStatusFilter/ItemStatusFilter";
+import "./index.css";
 
     const App = () =>{
-    const date = <span>{(new Date()).toLocaleDateString()}</span> //this is React element
     const todoData = [
         {id:0, label: 'Drink coffee',important: false},
         {id:1, label: 'Make awesome App',important: true},
@@ -14,10 +14,12 @@ import SearchPanel from "./components/SearchPanel/SearchPanel";
 
     ]
     return(
-        <div>
-            {date}
+        <div className="app-wrap">
             <AppHeader/>
-            <SearchPanel/>
+            <div className="inner-wrap">
+                <SearchPanel/>
+                <ItemStatusFilter/>
+            </div>
             <TodoList todos = {todoData}/>
         </div>
     )

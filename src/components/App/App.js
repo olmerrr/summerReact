@@ -7,9 +7,9 @@ import "./App.css";
 
     const App = () =>{
     const todoData = [
-        {id:0, label: 'Drink coffee',important: false},
-        {id:1, label: 'Make awesome App',important: true},
-        {id:2, label: 'Drink tea',important: false }
+        {id:0, label: 'Drink coffee'},
+        {id:1, label: 'Make awesome App'},
+        {id:2, label: 'Drink tea'}
 
     ]
     return(

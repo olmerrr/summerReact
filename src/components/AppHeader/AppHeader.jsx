@@ -1,10 +1,10 @@
 import React from "react";
 import "./AppHeader.css";
-const TodoList = () =>{
+const TodoList = (props) =>{
     return (
  <div className="app-header">
      <h1>Todo - list app </h1>
-     <p>1 more to do, 3 done</p>
+     <p>Осталось {props.toDoCount} дел, сделал {props.doneCount}</p>
  </div>
 
     );

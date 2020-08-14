@@ -36,11 +36,14 @@ export default class App extends Component {
             return {
                 todoData: newArr
             }
-
         })
-
     };
-
+    onToggleImportant = (id) =>{
+        console.log('toogleImportent',id)
+    };
+    onToggleDone = (id) =>{
+        console.log('toogleDone',id)
+    }
     render() {
         return (
             <div className="app-wrap">
@@ -52,6 +55,8 @@ export default class App extends Component {
                 <TodoList
                     todos={this.state.todoData}
                     onDeleted={this.deleteItem}
+                    onToggleImportant ={this.onToggleImportant}
+                    onToggleDone={this.onToggleDone}
                 />
                 <ItemAddForm
                 onItemAdded = {this.addItem}

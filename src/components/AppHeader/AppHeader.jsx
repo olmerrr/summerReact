@@ -1,12 +1,12 @@
 import React from "react";
 import "./AppHeader.css";
-const TodoList = (props) =>{
-    return (
- <div className="app-header">
-     <h1>Todo - list app </h1>
-     <p>Осталось {props.toDoCount} дел, сделал {props.doneCount}</p>
- </div>
+ const AppHeader = (props)=>{
+        return (
+            <div className="app-header">
+                <h1>Todo - list app </h1>
+                <p>{props.todo} more to do, {props.done} done</p>
+            </div>
 
-    );
-};
-export default TodoList;
+        );
+    };
+export  default  AppHeader;

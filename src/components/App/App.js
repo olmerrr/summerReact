@@ -73,20 +73,19 @@ export default class App extends Component {
             };
         });
     };
+    onSearchChange = (term) =>{
+        this.setState({ term });
+    }
     search (items, term){
-       if( term.length === 0){
-           return items;
-       }
-        return  items.filter( (item) => {
+        if( term.length === 0){
+            return  items;
+        }
+        return  items.filter ( (item) => {
             return item.label
                 .toLowerCase()
                 .indexOf(term.toLowerCase()) > -1;
         });
-    }
-    onSearchChange = (term) => {
-        this.setState({
-            term
-        });
+
     }
     render() {
         const {todoData, term } = this.state;
@@ -102,8 +101,7 @@ export default class App extends Component {
                 />
                 <div className="inner-wrap">
                     <SearchPanel
-                    onSearchChange = {this.onSearchChange}
-                    />
+                    onSearchChange={this.onSearchChange}/>
                     <ItemStatusFilter/>
                 </div>
                 <TodoList

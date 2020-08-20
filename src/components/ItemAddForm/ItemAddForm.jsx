@@ -28,8 +28,7 @@ export default class ItemAddForm extends Component {
                        onChange={this.onLabelChange}
                        value={this.state.label}
                 />
-                <button className="btn btn-outline-secondary"
-                >
+                <button className="btn btn-outline-secondary">
                     Add more
                 </button>
             </form>

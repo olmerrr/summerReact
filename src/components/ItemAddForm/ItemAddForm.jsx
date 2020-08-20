@@ -24,7 +24,7 @@ export default class ItemAddForm extends Component {
                   onSubmit={this.onSubmitForm}>
                 <input type="text"
                        className="form-control"
-                       placeholder="What i nee to do: "
+                       placeholder="What i need to do: "
                        onChange={this.onLabelChange}
                        value={this.state.label}
                 />

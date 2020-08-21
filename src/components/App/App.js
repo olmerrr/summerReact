@@ -14,7 +14,8 @@ export default class App extends Component {
             this.createTodoItem('Lern JS', false),
             this.createTodoItem('Make awesome app on ReactJS', false)
         ],
-        term: ''
+        term: '',
+        filter: 'active'
     };
 
     createTodoItem(label) {
@@ -73,23 +74,40 @@ export default class App extends Component {
             };
         });
     };
-    onSearchChange = (term) =>{
-        this.setState({ term });
+    onSearchChange = (term) => {
+        this.setState({term});
     }
-    search (items, term){
-        if( term.length === 0){
-            return  items;
+
+    search(items, term) {
+        if (term.length === 0) {
+            return items;
         }
-        return  items.filter ( (item) => {
+        return items.filter((item) => {
             return item.label
                 .toLowerCase()
                 .indexOf(term.toLowerCase()) > -1;
         });
 
-    }
+    };
+
+    filter(items, filter) {
+        switch (filter) {
+            case 'all':
+                return items;
+            case 'active':
+                return items.filter((item) => !item.done);
+            case 'done':
+                return items.filter((item) => item.done);
+                default:
+                return items;
+        }
+    };
+
     render() {
-        const {todoData, term } = this.state;
-        const visibleItems = this.search(todoData,term)
+        const {todoData, term, filter} = this.state;
+        const visibleItems = this.filter(
+            this.search(todoData, term), filter);
+
         const doneCount = todoData
             .filter((el) => el.done).length;
         const todoCount = todoData.length - doneCount;
@@ -101,7 +119,7 @@ export default class App extends Component {
                 />
                 <div className="inner-wrap">
                     <SearchPanel
-                    onSearchChange={this.onSearchChange}/>
+                        onSearchChange={this.onSearchChange}/>
                     <ItemStatusFilter/>
                 </div>
                 <TodoList

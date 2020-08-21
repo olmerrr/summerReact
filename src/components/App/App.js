@@ -15,7 +15,7 @@ export default class App extends Component {
             this.createTodoItem('Make awesome app on ReactJS', false)
         ],
         term: '',
-        filter: 'active'
+        filter: 'all'
     };
 
     createTodoItem(label) {
@@ -102,7 +102,9 @@ export default class App extends Component {
                 return items;
         }
     };
-
+    onFilterChange = (filter) =>{
+        this.setState({filter});
+    }
     render() {
         const {todoData, term, filter} = this.state;
         const visibleItems = this.filter(
@@ -120,7 +122,10 @@ export default class App extends Component {
                 <div className="inner-wrap">
                     <SearchPanel
                         onSearchChange={this.onSearchChange}/>
-                    <ItemStatusFilter/>
+                    <ItemStatusFilter
+                    filter = {filter}
+                    onFilterChange = {this.onFilterChange}
+                    />
                 </div>
                 <TodoList
                     todos={visibleItems}

@@ -89,22 +89,22 @@ export default class App extends Component {
         });
 
     };
-
-    filter(items, filter) {
-        switch (filter) {
-            case 'all':
-                return items;
-            case 'active':
-                return items.filter((item) => !item.done);
-            case 'done':
-                return items.filter((item) => item.done);
-                default:
-                return items;
-        }
-    };
-    onFilterChange = (filter) =>{
-        this.setState({filter});
+    filter(items, filter){
+    switch(filter){
+        case 'all':
+            return items;
+        case 'active':
+            return items.filter( (item) => !item.done)
+        case 'done':
+            return items.filter( (item) => item.done)
+        default:
+            return items;
     }
+    };
+    onFilterChange = (filter) => {
+        this.setState({filter})
+    };
+
     render() {
         const {todoData, term, filter} = this.state;
         const visibleItems = this.filter(
@@ -123,8 +123,8 @@ export default class App extends Component {
                     <SearchPanel
                         onSearchChange={this.onSearchChange}/>
                     <ItemStatusFilter
-                    filter = {filter}
-                    onFilterChange = {this.onFilterChange}
+                        filter = {filter}
+                        onFilterChange = {this.onFilterChange}
                     />
                 </div>
                 <TodoList
